@@ -5,16 +5,27 @@ import '@polymer/paper-button/paper-button.js';
 import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/iron-icons/iron-icons.js';
 
-// import 'https://js.stripe.com/v3';
-
 class MyStripe extends PolymerElement {
   static get properties() {
     return {
     };
   }
-  constructor() {
-    super();
+  stripeCalling () {
+    Stripe('pk_test_MzZvwHo2zlzC6iFCZqLWXc60').redirectToCheckout({
+      items: [{ sku: 'sku_FK8ojS0i3qW24x', quantity: 1 }],
+      successUrl: 'https://your-website.com/success',
+      cancelUrl: 'https://your-website.com/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
   }
+  // constructor() {
+  //   super();
+  // }
   static get template() {
     return html`
       <style include="shared-styles">
@@ -39,11 +50,10 @@ class MyStripe extends PolymerElement {
 
         <div id="error-message"></div>
         
-        <paper-button raised>
+        <paper-button raised on-click="stripeCalling">
           <iron-icon icon="payment"></iron-icon>
           Pay
         </paper-button>
-        
       </div>
     `;
   }
