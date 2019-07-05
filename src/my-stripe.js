@@ -13,8 +13,8 @@ class MyStripe extends PolymerElement {
   stripeCalling () {
     Stripe('pk_test_MzZvwHo2zlzC6iFCZqLWXc60').redirectToCheckout({
       items: [{ sku: 'sku_FK8ojS0i3qW24x', quantity: 1 }],
-      successUrl: 'https://your-website.com/success',
-      cancelUrl: 'https://your-website.com/canceled',
+      successUrl: 'http://127.0.0.1:8081/success',
+      cancelUrl: 'http://127.0.0.1:8081/canceled',
     })
     .then(function (result) {
       if (result.error) {

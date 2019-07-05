@@ -111,6 +111,8 @@ class MyApp extends PolymerElement {
             <my-view3 name="view3"></my-view3>
             <my-datos name="datos"></my-datos>
             <my-stripe name="stripe"></my-stripe>
+            <my-success name="success"></my-success>
+            <my-canceled name="canceled"></my-canceled>
             <my-view404 name="view404"></my-view404>
           </iron-pages>
         </app-header-layout>
@@ -143,7 +145,7 @@ class MyApp extends PolymerElement {
      // Show 'view1' in that case. And if the page doesn't exist, show 'view404'.
     if (!page) {
       this.page = 'view1';
-    } else if (['view1', 'view2', 'view3', 'datos', 'stripe'].indexOf(page) !== -1) {
+    } else if (['view1', 'view2', 'view3', 'datos', 'stripe', 'success', 'canceled'].indexOf(page) !== -1) {
       this.page = page;
     } else {
       this.page = 'view404';
@@ -175,6 +177,12 @@ class MyApp extends PolymerElement {
         break;
       case 'stripe':
         import('./my-stripe.js');
+        break;
+      case 'success':
+        import('./my-success.js');
+        break;
+      case 'canceled':
+        import('./my-canceled.js');
         break;
       case 'view404':
         import('./my-view404.js');
