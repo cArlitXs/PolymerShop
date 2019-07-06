@@ -85,13 +85,9 @@ class MyApp extends PolymerElement {
           <app-toolbar><a name="" href="[[rootPath]]">Menu</a></app-toolbar>
           <hr>
           <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-            <a name="view1" href="[[rootPath]]view1">View One</a>
-            <a name="view2" href="[[rootPath]]view2">View Two</a>
-            <a name="view3" href="[[rootPath]]view3">View Three</a>
-            <a name="stripe" href="[[rootPath]]stripe">Stripe</a>
-            <!-- <hr>
-            <b>Mis datos</b> -->
-            <a name="datos" href="[[rootPath]]datos">Datos</a>
+            <a name="home" href="[[rootPath]]home">Home</a>
+            <a name="store" href="[[rootPath]]store">Store</a>
+            <a name="datos" href="[[rootPath]]datos">Data</a>
           </iron-selector>
         </app-drawer>
 
@@ -106,11 +102,9 @@ class MyApp extends PolymerElement {
           </app-header>
 
           <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
-            <my-view1 name="view1"></my-view1>
-            <my-view2 name="view2"></my-view2>
-            <my-view3 name="view3"></my-view3>
+            <my-home name="home"></my-home>
             <my-datos name="datos"></my-datos>
-            <my-stripe name="stripe"></my-stripe>
+            <my-store name="store"></my-store>
             <my-success name="success"></my-success>
             <my-canceled name="canceled"></my-canceled>
             <my-view404 name="view404"></my-view404>
@@ -142,10 +136,10 @@ class MyApp extends PolymerElement {
      // Show the corresponding page according to the route.
      //
      // If no page was found in the route data, page will be an empty string.
-     // Show 'view1' in that case. And if the page doesn't exist, show 'view404'.
+     // Show 'home' in that case. And if the page doesn't exist, show 'view404'.
     if (!page) {
-      this.page = 'view1';
-    } else if (['view1', 'view2', 'view3', 'datos', 'stripe', 'success', 'canceled'].indexOf(page) !== -1) {
+      this.page = 'home';
+    } else if (['home', 'datos', 'store', 'success', 'canceled'].indexOf(page) !== -1) {
       this.page = page;
     } else {
       this.page = 'view404';
@@ -163,20 +157,14 @@ class MyApp extends PolymerElement {
     // Note: `polymer build` doesn't like string concatenation in the import
     // statement, so break it up.
     switch (page) {
-      case 'view1':
-        import('./my-view1.js');
-        break;
-      case 'view2':
-        import('./my-view2.js');
-        break;
-      case 'view3':
-        import('./my-view3.js');
+      case 'home':
+        import('./my-home.js');
         break;
       case 'datos':
         import('./my-datos.js');
         break;
-      case 'stripe':
-        import('./my-stripe.js');
+      case 'store':
+        import('./my-store.js');
         break;
       case 'success':
         import('./my-success.js');

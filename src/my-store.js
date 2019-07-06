@@ -9,7 +9,7 @@ import '@polymer/paper-button/paper-button.js';
 import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/iron-icons/iron-icons.js';
 
-class MyStripe extends PolymerElement {
+class MyStore extends PolymerElement {
   static get properties() {
     return {
       stripe: { value: Stripe('pk_test_MzZvwHo2zlzC6iFCZqLWXc60')},
@@ -56,34 +56,62 @@ class MyStripe extends PolymerElement {
         }
       </style>
 
-      <div class="card">
+      <!-- <div class="card">
         <div class="circle">S</div>
         <h1>Stripe</h1>
         <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
 
         <div id="error_message"></div>
         
-        <!-- <paper-button raised on-click="stripeCalling" disabled>
+        <paper-button raised on-click="stripeCalling" disabled>
           <iron-icon icon="payment"></iron-icon>
           Pay
-        </paper-button> -->
+        </paper-button>
 
         <hr>
         <p>Item 1:</p>
         <p><small>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a elit quis odio auctor auctor.</small></p>
-        <!-- <paper-dropdown-menu label="Quantity:" noink no-animations>
+        
+        <paper-dropdown-menu label="Quantity:" noink no-animations>
           <paper-listbox slot="dropdown-content" class="dropdown-content" selected="0">
             <template is="dom-repeat" items="{{quantityMax}}">
               <paper-item id="{{item.q}}" on-tap="quantityFunc">{{item.q}}</paper-item>
             </template>
           </paper-listbox>
         </paper-dropdown-menu>
-        <br> -->
+
+        <br>
         <paper-button raised id="sku_FK8ojS0i3qW24x" on-click="clickToBuy">
           <iron-icon icon="payment"></iron-icon>
           Pay
         </paper-button>
         <hr>
+        <p>Item 2:</p>
+        <p><small>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a elit quis odio auctor auctor.</small></p>
+        <paper-button raised id="sku_FNf1Km4MaGLIWn" on-click="clickToBuy">
+          <iron-icon icon="payment"></iron-icon>
+          Pay
+        </paper-button>
+      </div> -->
+
+      <div id="error_message"></div>
+
+      <div class="card">
+        <div class="circle">S</div>
+        <h1>Shop</h1>
+        <p>Polymer with Stripe</p>
+      </div>
+
+      <div class="card">
+        <p>Item 1:</p>
+        <p><small>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a elit quis odio auctor auctor.</small></p>
+        <paper-button raised id="sku_FK8ojS0i3qW24x" on-click="clickToBuy">
+          <iron-icon icon="payment"></iron-icon>
+          Pay
+        </paper-button>
+      </div>
+
+      <div class="card">
         <p>Item 2:</p>
         <p><small>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a elit quis odio auctor auctor.</small></p>
         <paper-button raised id="sku_FNf1Km4MaGLIWn" on-click="clickToBuy">
@@ -113,4 +141,4 @@ class MyStripe extends PolymerElement {
   // }
 }
 
-window.customElements.define('my-stripe', MyStripe);
+window.customElements.define('my-store', MyStore);
